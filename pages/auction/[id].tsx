@@ -127,8 +127,8 @@ const Article = () => {
                 </div>
                 <div className="articleInfoActionInfoBlock">
                   <p>Auction ending in</p>
-                  {console.log(moment(pageData.DateEnd).format('x'))}
-                  <Countdown daysInHours date={moment(new Date(pageData.DateEnd)).toISOString()} />
+                  {console.log(moment(new Date(pageData.DateEnd)).toISOString())}
+                  <Countdown daysInHours date={moment(pageData.DateEnd).toISOString()} />
                 </div>
               </div>
               <Link href={pageData.BidFormURL}>
