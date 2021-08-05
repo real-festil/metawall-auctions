@@ -6,6 +6,7 @@ import Link from 'next/link'
 import moment from 'moment';
 import Countdown from 'react-countdown';
 import Head from 'next/head';
+import YouTube from 'react-youtube';
 
 const Icon = () => (
   <svg width="40" height="30" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,16 +74,18 @@ const Article = () => {
       {pageData && pref && (
         <section className="article">
           <div className="articleImage">
-            <Link href={pageData.StreamURL}>
-              <a style={{display: "flex", width: "100%"}} target="_blank">
+            {pageData.StreamStatus === "Active" ? (
+              <YouTube videoId={pageData.StreamURL.split("v=")[1]} containerClassName={"youtubeContainer"} />
+            ) : (
+              <>
                 <img src={pageData.ArtworkPreviewImg} alt="Preview" />
-              </a>
-            </Link>
-            {pageData.StreamStatus === "Active" && (
-              <div className="articleImageStatus">
-                LIVE
-              </div>
-            )}
+                {pageData.StreamStatus === "Active" && (
+                  <div className="articleImageStatus">
+                    LIVE
+                  </div>
+                )}
+              </>
+              )}
           </div>
           <div className="articleInfo">
             <div style={{overflowY: "auto"}}>
@@ -120,11 +123,11 @@ const Article = () => {
               <div className="articleInfoActionInfo">
                 <div className="articleInfoActionInfoBlock">
                   <p>Current Bid</p>
-                  <p>{pageData.CurrentBidAmountETH} ETH <span>${(pageData.CurrentBidAmountETH * pref.ETHUSD).toFixed(3)}</span></p>
+                  <p>{pageData.CurrentBidAmountETH} ETH <span>${(pageData.CurrentBidAmountETH * pref.ETHUSD).toFixed(0)}</span></p>
                 </div>
                 <div className="articleInfoActionInfoBlock">
                   <p>Auction ending in</p>
-                  <Countdown daysInHours date={new Date(pageData.DateEnd)} />
+                  <Countdown daysInHours date={moment(new Date(pageData.DateEnd)).format()} />
                 </div>
               </div>
               <Link href={pageData.BidFormURL}>

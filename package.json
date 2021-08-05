@@ -16,6 +16,7 @@
     "react": "17.0.2",
     "react-countdown": "^2.3.2",
     "react-dom": "17.0.2",
+    "react-youtube": "^7.13.1",
     "sass": "^1.37.5"
   },
   "devDependencies": {
