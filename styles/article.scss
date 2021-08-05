@@ -1,0 +1,224 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 64px;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.article {
+  width: 100%;
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &Image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 375px);
+    position: relative;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      max-height: calc(100vh - 64px);
+
+      @media (max-width: 768px) {
+        height: auto;
+      }
+    }
+
+    &Status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #FF0000;
+      border-radius: 12px;
+      padding: 3px 10px 6px;
+      font-weight: bold;
+    }
+  }
+
+  &Info {
+    border-left: 1px solid #fff;
+    padding: 24px 16px;
+    width: 375px;
+    height: calc(100vh - 65px);
+    position: relative;
+    max-height: 100%;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      border: none;
+      padding-bottom: 164px;
+    }
+
+    &Title {
+      font-size: 23px;
+      line-height: 100%;
+      margin: 0
+    }
+
+    &Desc {
+      font-size: 15px;
+      line-height: 150%;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+      margin-top: 16px;
+
+      span {
+        cursor: pointer;
+        color: #0085ff;
+      }
+    }
+
+    &Author {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 25px;
+
+      &Info {
+        display: flex;
+
+        &Text {
+          display: flex;
+          flex-direction: column;
+          margin-left: 13px;
+          justify-content: center;
+        }
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+
+        p {
+          margin: 0;
+          font-weight: bold;
+          font-size: 15px;
+          line-height: 150%;
+
+          &:first-child {
+            font-weight: normal;
+            line-height: 100%;
+            font-size: 13px;
+            line-height: 100%;
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+      }
+    }
+
+    &Subtitle {
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 150%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+
+    &Bids {
+      &Bid {
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 100%;
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0;
+
+        &:first-child {
+          margin-bottom: 5px;
+        }
+      }
+
+      &Sum {
+        font-size: 15px;
+        line-height: 100%;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+
+      &Num {
+        font-size: 15px;
+        line-height: 100%;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    &Action {
+      border-top: 1px solid #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;
+
+      @media (max-width: 768px) {
+        position: fixed;
+        bottom: 0;
+      }
+
+      &Info {
+        display: flex;
+        justify-content:space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+
+        &Block {
+          width: 50%;
+          padding: 12px 16px;
+
+          p, span {
+            margin: 0;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 100%;
+
+            &:first-child {
+              color: rgba(255, 255, 255, 0.5);
+              font-weight: normal;
+              margin-bottom: 5px;
+              line-height: 100%;
+            }
+          }
+
+          &:first-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+
+      &Button {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 100%;
+        width: calc(100% - 32px);
+        background: #FFE500;
+        border-radius: 32px;
+        padding: 14px 59px 19px;
+        color: black;
+        margin: 10px 16px 11px;
+      }
+    }
+  }
+}
